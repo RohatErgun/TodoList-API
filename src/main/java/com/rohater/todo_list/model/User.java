@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "user")
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Table(name = "app_user")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class User {
     @Id

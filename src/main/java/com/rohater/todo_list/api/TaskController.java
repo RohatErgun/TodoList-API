@@ -49,6 +49,10 @@ public class TaskController {
         return taskService.findTasksByCreationDateBetween(start, end);
     }
 
-
+    @GetMapping("/creation-date")
+    public List<Task> getAllByCreationDate(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime creationDate){
+        return taskService.findAllByCreationDate(creationDate);
+    }
 
 }

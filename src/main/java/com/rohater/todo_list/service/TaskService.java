@@ -19,7 +19,8 @@ public class TaskService {
     }
 
     public Task findTaskById(Long id){
-
+        return taskRepo.findTaskById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
     public List<Task> findTasksByCreationDateBetween(LocalDateTime start, LocalDateTime end){

@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "app_user")
@@ -21,4 +23,6 @@ public class User {
     private String lastname;
     private String email;
 
+    @OneToMany
+    private List<Task> tasksList;
 }

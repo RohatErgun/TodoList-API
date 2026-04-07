@@ -31,4 +31,11 @@ public class TaskController {
         return taskService.save(task);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTask(@PathVariable("id") Long id){
+        taskService.deleteById(id);
+    }
+
+
 }

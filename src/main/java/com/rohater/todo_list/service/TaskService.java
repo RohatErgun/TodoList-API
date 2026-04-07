@@ -43,7 +43,7 @@ public class TaskService {
         return taskRepo.findAllByCreationDate(creationDate);
     }
 
-    public List<Task> findByUser(Optional<User> user){
+    public List<Task> findByUser(User user){
         return taskRepo.findByUser(user);
     }
 

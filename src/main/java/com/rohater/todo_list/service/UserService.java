@@ -16,7 +16,7 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public Optional<User> finByUserId(Long userId){
+    public Optional<User> findByUserId(Long userId){
         return userRepo.findById(userId);
     }
 }

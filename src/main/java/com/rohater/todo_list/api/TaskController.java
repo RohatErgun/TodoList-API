@@ -63,7 +63,7 @@ public class TaskController {
 
     @GetMapping("/user/{userId}")
     public List<Task> getTaskByUser(@PathVariable Long userId){
-        User user = userService.finByUserId(userId)
+        User user = userService.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("User not Found"));
         return taskService.findByUser(user);
     }

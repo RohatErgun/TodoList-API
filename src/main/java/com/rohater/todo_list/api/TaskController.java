@@ -35,7 +35,7 @@ public class TaskController {
         return taskService.save(task);
     }
 
-    @PutMapping(value = "{/id}", consumes = "application/json")
+    @PutMapping(value = "/{id}", consumes = "application/json")
     public Task putTask(@PathVariable("id") Long id, @RequestBody Task task){
         task.setId(id);
         return taskService.save(task);

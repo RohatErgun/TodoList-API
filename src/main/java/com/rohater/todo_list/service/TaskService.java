@@ -32,15 +32,15 @@ public class TaskService {
     }
 
     public List<Task> findTasksByCreationDateBetween(LocalDateTime start, LocalDateTime end){
-
+        return taskRepo.findTasksByCreationDateBetween(start, end);
     }
 
     public List<Task> findAllByCreationDate(LocalDateTime creationDate){
-
+        return taskRepo.findAllByCreationDate(creationDate);
     }
 
     public List<Task> findByUser(User user){
-
+        return taskRepo.findByUser(user);
     }
 
 }

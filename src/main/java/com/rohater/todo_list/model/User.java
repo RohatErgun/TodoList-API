@@ -23,6 +23,6 @@ public class User {
     private String lastname;
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Task> tasksList;
 }

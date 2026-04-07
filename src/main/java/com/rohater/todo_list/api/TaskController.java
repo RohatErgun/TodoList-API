@@ -1,6 +1,7 @@
 package com.rohater.todo_list.api;
 
 import com.rohater.todo_list.model.Task;
+import com.rohater.todo_list.model.User;
 import com.rohater.todo_list.service.TaskService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;

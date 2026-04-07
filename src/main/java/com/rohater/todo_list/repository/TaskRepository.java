@@ -6,11 +6,12 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface TaskRepository
         extends CrudRepository<Task, Long>{
 
-   Task findTaskById(Long id);
+   Optional<Task> findTaskById(Long id);
 
    List<Task> findTasksByCreationDateBetween(LocalDateTime start, LocalDateTime end);
 

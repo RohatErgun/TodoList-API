@@ -2,6 +2,7 @@ package com.rohater.todo_list.api;
 
 import com.rohater.todo_list.model.Task;
 import com.rohater.todo_list.service.TaskService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,6 +17,12 @@ public class TaskController {
     @GetMapping("/{id}")
     public Task getTask(@PathVariable("id") Long id){
         return taskService.findTaskById(id);
+    }
+
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task postTask(Task task){
+        return taskService.save(task);
     }
 
 }

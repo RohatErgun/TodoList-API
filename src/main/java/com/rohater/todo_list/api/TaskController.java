@@ -56,4 +56,10 @@ public class TaskController {
         return taskService.findAllByCreationDate(creationDate);
     }
 
+//    @GetMapping("/user/{userId}")
+//    public List<Task> getTaskByUser(@PathVariable Long userId){
+//        User user = userService.findById(userId);
+//        return taskService.findByUser(user);
+//    }
+
 }

@@ -18,6 +18,14 @@ public class TaskService {
         this.taskRepo = taskRepo;
     }
 
+    public Task save(Task task){
+        return taskRepo.save(task);
+    }
+
+    public void delete(Task task){
+        taskRepo.delete(task);
+    }
+
     public Task findTaskById(Long id){
         return taskRepo.findTaskById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));

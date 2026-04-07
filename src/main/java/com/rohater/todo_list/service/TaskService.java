@@ -3,11 +3,11 @@ package com.rohater.todo_list.service;
 import com.rohater.todo_list.model.Task;
 import com.rohater.todo_list.repository.TaskRepository;
 import com.rohater.todo_list.model.User;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -43,7 +43,7 @@ public class TaskService {
         return taskRepo.findAllByCreationDate(creationDate);
     }
 
-    public List<Task> findByUser(User user){
+    public List<Task> findByUser(Optional<User> user){
         return taskRepo.findByUser(user);
     }
 

@@ -17,5 +17,5 @@ public interface TaskRepository
 
    List<Task> findAllByCreationDate(LocalDateTime creationDate);
 
-   List<Task> findByUser(User user);
+   List<Task> findByUser(Optional<User> user);
 }

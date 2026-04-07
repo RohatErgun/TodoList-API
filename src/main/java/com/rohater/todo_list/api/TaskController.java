@@ -30,7 +30,8 @@ public class TaskController {
 
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Task postTask(Task task){
+    public Task postTask(
+            @RequestBody Task task){
         return taskService.save(task);
     }
 

@@ -2,8 +2,12 @@ package com.rohater.todo_list.api;
 
 import com.rohater.todo_list.model.Task;
 import com.rohater.todo_list.service.TaskService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/tasks", produces = "application/json")
@@ -36,6 +40,15 @@ public class TaskController {
     public void deleteTask(@PathVariable("id") Long id){
         taskService.deleteById(id);
     }
+
+    @GetMapping("/between-dates")
+    public List<Task> getTasksByCreationDateBetween(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end){
+
+        return taskService.findTasksByCreationDateBetween(start, end);
+    }
+
 
 
 }

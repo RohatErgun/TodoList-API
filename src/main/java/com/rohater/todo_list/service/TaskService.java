@@ -3,6 +3,7 @@ package com.rohater.todo_list.service;
 import com.rohater.todo_list.model.Task;
 import com.rohater.todo_list.repository.TaskRepository;
 import com.rohater.todo_list.model.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,8 +23,11 @@ public class TaskService {
         return taskRepo.save(task);
     }
 
-    public void delete(Task task){
-        taskRepo.delete(task);
+    public void deleteById(Long id){
+        if(!taskRepo.existsById(id)){
+            throw new RuntimeException("Task not found");
+        }
+        taskRepo.deleteById(id);
     }
 
     public Task findTaskById(Long id){

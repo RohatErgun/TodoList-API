@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-
     private final UserRepository userRepo;
 
     public UserService(UserRepository userRepo){
@@ -18,5 +17,9 @@ public class UserService {
 
     public Optional<User> findByUserId(Long userId){
         return userRepo.findById(userId);
+    }
+
+    public User saveUser(User user){
+        return userRepo.save(user);
     }
 }

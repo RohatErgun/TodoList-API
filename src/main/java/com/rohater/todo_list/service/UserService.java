@@ -4,6 +4,7 @@ import com.rohater.todo_list.model.User;
 import com.rohater.todo_list.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -21,5 +22,9 @@ public class UserService {
 
     public User saveUser(User user){
         return userRepo.save(user);
+    }
+
+    public List<User> getUsers(){
+        return (List<User>) userRepo.findAll();
     }
 }

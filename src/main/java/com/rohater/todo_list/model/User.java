@@ -1,6 +1,7 @@
 package com.rohater.todo_list.model;
 
 
+import com.rohater.todo_list.security.Role;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -27,4 +28,7 @@ public class User {
     private List<Task> tasksList;
 
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

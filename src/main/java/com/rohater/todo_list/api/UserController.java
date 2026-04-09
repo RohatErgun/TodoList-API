@@ -3,10 +3,9 @@ package com.rohater.todo_list.api;
 import com.rohater.todo_list.model.User;
 import com.rohater.todo_list.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +23,12 @@ public class UserController {
     @GetMapping("/app-users")
     public ResponseEntity<List<User>> getUsers(){
         return ResponseEntity.ok().body(userService.getUsers());
+    }
+
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User postUser(
+            @RequestBody User user){
+        return userService.saveUser(user);
     }
 }
